@@ -219,7 +219,29 @@ Método CalcularConsumo():
 ```
 Implementação genérica para cálculo de consumo, a ser sobrescrita pelas subclasses.
 Agora, implemente as classes Carro e Moto, garantindo que ambas herdem de Veiculo e possuam métodos específicos para calcular o consumo de combustível com base na quilometragem e eficiência do veículo.
-______
+
+Classe Carro herda Veiculo:
+    Atributos:
+        kmPorLitro  // Quilômetros percorridos por litro de combustível
+
+    Método Construtor(modelo, ano, kmPorLitro):
+        Chamar Construtor da classe Veiculo(modelo, ano)
+        this.kmPorLitro ← kmPorLitro
+
+    Método CalcularConsumo(quilometragem):
+        Retornar (quilometragem / kmPorLitro)  // Retorna litros gastos]
+
+        Classe Moto herda Veiculo:
+    Atributos:
+        kmPorLitro  // Quilômetros percorridos por litro de combustível
+
+    Método Construtor(modelo, ano, kmPorLitro):
+        Chamar Construtor da classe Veiculo(modelo, ano)
+        this.kmPorLitro ← kmPorLitro
+
+    Método CalcularConsumo(quilometragem):
+        Retornar (quilometragem / kmPorLitro)  // Retorna litros gastos
+
 
 **9)** Você é um cientista da NASA e está ajudando no desenvolvimento de um sistema de pouso para sondas espaciais em Marte. Seu objetivo é calcular o tempo necessário para que a sonda reduza sua velocidade até um nível seguro para pouso, considerando uma velocidade inicial de entrada na atmosfera marciana e uma taxa de desaceleração constante causada pelo atrito atmosférico e retrofoguetes.
 
@@ -232,6 +254,41 @@ Considere a fórumla de atualização velocidade:
     velocidade = velocidadeInicial - desaceleracao * tempo
 ```
 Seu programa deve determinar quanto tempo será necessário para que a sonda atinja uma velocidade segura de pouso, sem ultrapassar os limites estabelecidos.
+
+algoritmo SimulacaoPousoMarte
+
+// Definição das variáveis
+entrada velocidadeInicial, desaceleracao, velocidadeSegura, tempoMaximo
+
+tempo <- 0
+velocidade <- velocidadeInicial
+
+// Verifica se os parâmetros são válidos
+se desaceleracao <= 0 entao
+    exibir "Erro: A desaceleração deve ser positiva."
+    sair
+fim
+
+se velocidadeInicial <= velocidadeSegura entao
+    exibir "Erro: A velocidade inicial já é segura."
+    sair
+fim
+
+// Loop para calcular o tempo necessário
+enquanto velocidade > velocidadeSegura e tempo < tempoMaximo faca
+    tempo <- tempo + 1
+    velocidade <- velocidade - desaceleracao
+fimenquanto
+
+// Verifica se atingiu a velocidade segura dentro do tempo limite
+se velocidade <= velocidadeSegura entao
+    exibir "Tempo necessário para pouso seguro: ", tempo, " segundos."
+senao
+    exibir "Aviso: Não foi possível atingir a velocidade segura dentro do tempo máximo permitido."
+fim
+
+fimalgoritmo
+
 ______
 
 **10)** Em um sistema de análise financeira, as operações de investimento de uma empresa podem ser representadas por matrizes, onde cada linha representa um tipo de investimento e cada coluna representa um período de tempo.
